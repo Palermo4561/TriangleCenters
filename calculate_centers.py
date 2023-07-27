@@ -178,7 +178,7 @@ Parameters:
         s = (a + b + c) / 2
 
         # Heron's Formula
-        area = sqrt(s * (s - a) * (s - b) * (s - c))
+        area = sqrt(abs(s * (s - a) * (s - b) * (s - c)))
 
         # by dividing area but semi-perimeter, we get the radious of the incenter
         return area / s

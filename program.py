@@ -12,12 +12,12 @@ def main() -> None:
 Parameters: None"""
 
     # basic window setup 
-    pg.display.set_mode((WIDTH, WIDTH))
+    pg.display.set_mode((WIDTH + MENU_WIDTH, WIDTH))
     pg.display.set_caption("Triangle Centers")
     pg.display.set_icon(pg.image.load("triangle_icon.png"))
 
     # initial example verticies 
-    vertecies = [[-6, -2], [5, 0], [-5, 9]]
+    vertecies = [[-9, -2], [4, -7], [8, 8]]
 
     # booleans
     mouse_down = False
@@ -43,7 +43,7 @@ Parameters: None"""
             if event.type == pg.KEYDOWN:
                 if event.key == pg.K_LSHIFT:
                     left_shift = True
-                if event.key == pg.K_q:
+                if event.key in (pg.K_q, pg.K_ESCAPE):
                     pg.quit()
                     sys.exit()
             if event.type == pg.KEYUP:
@@ -51,7 +51,7 @@ Parameters: None"""
                     left_shift = False
 
         # make triangle points correlate to the grid on the screen
-        adjusted_triangle_points = calculate.adjust_triangle_points(vertecies)
+        adjusted_triangle_points = calculate.adjust_triangle_verticies(vertecies)
 
         # draw the graph and grid
         draw.graph()
@@ -71,6 +71,8 @@ Parameters: None"""
                 draw.centers(centers, adjusted_triangle_points)
             else:
                 draw.centers(centers, adjusted_triangle_points, only_show=selected_center)
+        else:
+            draw.menu_description('Triangle Centers')
 
         # move the triangle vertex, if selected
         if mouse_down and is_changing_vertex:

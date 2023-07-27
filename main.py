@@ -4,8 +4,8 @@ This is a calculator made in PyGame to calculate and show the 4 centers of a tri
 Created by Grayson Palermo 
 
 Credits:
-Icon logo - https://www.pngegg.com/en/png-fpdni
-Font - https://www.1001freefonts.com
+    Icon logo: https://www.pngegg.com/en/png-fpdni
+    Graph Font: https://www.1001freefonts.com
 """
 
 import pygame as pg

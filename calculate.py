@@ -3,7 +3,6 @@ File containing mathematical calculations with a return value
 """
 
 import pygame as pg
-from math import sqrt, dist
 from settings import *
 import calculate_centers as cc
 
@@ -35,13 +34,13 @@ Parameters:
     return (adjust_size_x(x), adjust_size_y(y))
 
 
-def adjust_triangle_points(points:list) -> list:
+def adjust_triangle_verticies(verticies:list) -> list:
     """Changes both the mathematical x and y values into the values that will be represented correctly on the graph for the whole triangle
 
 Parameters:
-    points: a list of the three points of the triangle"""
+    verticies: a list of the three verticies of the triangle"""
 
-    return list(map(lambda point : adjust_both(*point), points))
+    return list(map(lambda point : adjust_both(*point), verticies))
 
 
 def downsize(x:float, y:float) -> tuple:
@@ -54,15 +53,15 @@ Parameters:
     return ((-WIDTH/2 + x)/SCALE, (WIDTH/2 - y)/SCALE)
 
 
-def centers(points:list) -> tuple:
-    """Calculates and returns the graphical values of each center based on the given triangle points
+def centers(verticies:list) -> tuple:
+    """Calculates and returns the graphical values of each center based on the given triangle verticies
 
 Parameters:
-    points: a list of the three points of the triangle"""
-    gx, gy = adjust_both(*cc.centroid(points))
-    hx, hy = adjust_both(*cc.orthocenter(points))
-    cx, cy = adjust_both(*cc.circumcenter(points))
-    ix, iy = adjust_both(*cc.incenter(points))
+    verticies: a list of the three verticies of the triangle"""
+    gx, gy = adjust_both(*cc.centroid(verticies))
+    hx, hy = adjust_both(*cc.orthocenter(verticies))
+    cx, cy = adjust_both(*cc.circumcenter(verticies))
+    ix, iy = adjust_both(*cc.incenter(verticies))
 
     return (gx, gy), (hx, hy), (cx, cy), (ix, iy) 
 
