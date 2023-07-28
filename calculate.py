@@ -66,7 +66,7 @@ Parameters:
     return (gx, gy), (hx, hy), (cx, cy), (ix, iy) 
 
 
-def selected_point(points:tuple|list, size_of_point:float) -> int:
+def selected_point(points:tuple|list, size_of_point:float, was_on_point:bool=True) -> int:
     """Returns the point hovered over by the mouse, or 0 if no point is being hovered over
 
 Parameters:
@@ -81,6 +81,8 @@ Parameters:
         collision_rect = pg.rect.Rect(x - size_of_point, y - size_of_point, size_of_point * 2, size_of_point * 2)
         
         if pg.Rect.collidepoint(collision_rect, *pg.mouse.get_pos()):
+            if not was_on_point:
+                pg.mixer.Sound("Point.mp3").play()
             return i + 1
         
     return 0

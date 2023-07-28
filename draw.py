@@ -174,8 +174,8 @@ Parameters:
         shown = only_show - 1
         coordinates = centers[shown]
 
-        aa_filled_circle(coordinates, POINT_RADIUS, POINT_COLORS[symbol_order[shown]])
         draw_functions[shown](coordinates, vertecies)
+        aa_filled_circle(coordinates, POINT_RADIUS, POINT_COLORS[symbol_order[shown]])
         menu_description(SYMBOL[symbol_order[shown]])
 
     else:
