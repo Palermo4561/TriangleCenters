@@ -11,8 +11,17 @@ Credits:
 """
 
 import pygame as pg
-import program
+from program import main
+import asyncio
+
 
 if __name__ == '__main__':
     pg.init()
-    program.main()
+    asyncio.run(main())
+
+"""
+TODO:
+add graph numbers 
+make the code cleaner and dynamic to a variable screen size
+
+"""

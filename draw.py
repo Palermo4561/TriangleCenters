@@ -184,3 +184,21 @@ Parameters:
             aa_filled_circle(centers[i], POINT_RADIUS, POINT_COLORS[letter])
             label(centers[i], letter, offsetX=LABEL_FONT_SIZE/2)
         menu_description('Triangle Centers')
+
+
+def mute_button(muted):
+
+    screen = pg.display.get_surface()
+
+    x, y = 0.93 * (WIDTH + MENU_WIDTH), 0.9 * WIDTH
+
+
+    if muted:
+        pg.draw.line(screen, 'black', (40+x, 22.5+y), (55+x, 37.5+y), 4)
+        pg.draw.line(screen, 'black', (40+x, 37.5+y), (55+x, 22.5+y), 4)
+    else:
+        pg.draw.circle(screen, 'black', (35+x, 30+y), 8, 3)
+        pg.draw.circle(screen, 'black', (35+x, 30+y), 14, 3)
+        pg.draw.circle(screen, 'black', (35+x, 30+y), 20, 3)
+        gfxdraw.filled_polygon(screen, ((45+x, 10+y), (35+x, 30+y), (45+x, 50+y), (5+x, 50+y), (5+x, 10+y)), pg.Color(MAIN_COLORS['background']))
+    pg.draw.polygon(screen, 'black', ((30+x, 10+y), (35+x, 10+y), (35+x, 50+y), (30+x, 50+y), (5+x, 30+y)))

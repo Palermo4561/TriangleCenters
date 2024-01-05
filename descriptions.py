@@ -6,7 +6,6 @@ This is an interactive triangle center
 calculator that dynamically shows and 
 calculates the 4 centers of a triangle
 
-
 Hover over a center to veiw the math
 and a description for the center
 
@@ -17,7 +16,8 @@ Hold Left Shift to snap the verticies by
 the grid 
 
 
-Pres Esc or Q to quit""", 
+Pres Esc or Q to quit
+Press M to mute""", 
 
     'Centroid' : """
 This is the centroid, marked as 'G'
